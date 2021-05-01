@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import GalleryList from '../GalleryList/GalleryList.jsx';
+// import GalleryItem from '../GalleryItem/GalleryItem.jsx';
 
 function App() {
 
@@ -25,13 +26,28 @@ function App() {
     })
   }
 
+  //Adding in a PUT function for the Likes
+
+  const likeCount = (id) => {
+    axios.put(`/gallery/like/${id}`)
+    .then(response => {
+      console.log('Testing Count!', response.data);
+      getGallery();
+    })
+    .catch(error => {
+      console.log('ERROR IN THE PUT', error);
+    })
+  }
+
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Gallery of My Life</h1>
         </header>
         <p>Gallery goes here</p>
-        <GalleryList galleryList = {galleryList}/>
+        <GalleryList galleryList = {galleryList} 
+        // likeCount = {likeCount}
+        />
       </div>
     );
 }

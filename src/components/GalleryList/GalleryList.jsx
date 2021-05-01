@@ -5,7 +5,9 @@ function GalleryList(props) {
     return (
         <div>
             {props.galleryList.map (image => 
-                (<GalleryItem key={image.id} image={image}/>)
+                (<GalleryItem key={image.id} image={image} likeCount={likeCount}/>)
+                //Trying to add in a like counter. Starting here to have to linked up after the 
+                //code in gallery item is added in
             )}
         </div>
     )
