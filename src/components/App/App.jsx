@@ -8,6 +8,8 @@ function App() {
 
   const [galleryList, setGalleryList] = useState([]);
 
+
+  //This puts the images on the screen. Without this no pictures
   useEffect(() => {
     console.log('testing');
     getGallery();
@@ -39,6 +41,7 @@ function App() {
     })
   }
 
+  //This is where everything is connected to with the GalleryItem and GalleryList
     return (
       <div className="App">
         <header className="App-header">
