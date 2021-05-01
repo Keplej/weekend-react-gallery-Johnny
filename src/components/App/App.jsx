@@ -1,19 +1,24 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
-// import GallaryImage from '../GallaryItem/GallaryImage';
+import GalleryList from '../GalleryList/GalleryList.jsx';
 
 function App() {
 
-  const [gallaryList, setGallaryList] = useState([]);
+  const [galleryList, setGalleryList] = useState([]);
+
+  useEffect(() => {
+    console.log('testing');
+    getGallery();
+  }, []);
 
   //Just making sure that axios is install with putting the term axios in
   const getGallery = () => {
     axios.get('/gallery')
     .then(response => {
-      console.log('Getting image from gallary!', response);
+      console.log('Getting image from gallery!', response);
       //Need to add in a source 
-      setGallaryList(response.data)
+      setGalleryList(response.data)
     })
     .catch(error => {
       console.log('Error on getting image', error);
@@ -26,7 +31,7 @@ function App() {
           <h1 className="App-title">Gallery of My Life</h1>
         </header>
         <p>Gallery goes here</p>
-        {/* <GalleryItem gallaryList ={gallaryList}/> */}
+        <GalleryList galleryList = {galleryList}/>
       </div>
     );
 }
