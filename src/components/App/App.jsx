@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import GalleryList from '../GalleryList/GalleryList.jsx';
-import GalleryItem from '../GalleryItem/GalleryItem.jsx';
+// import GalleryItem from '../GalleryItem/GalleryItem.jsx';
 
 function App() {
 
