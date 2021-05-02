@@ -26,12 +26,12 @@ function GalleryItem(props) {
 
 
     return (
-        <div>
+        <div className="container" key={props.image.id}>
             {/* This is where we pull all the info from the showInfo to show up on the page and push it to App.jsx */}
             {showInfo()}
             {/* <img src={image.path} alt={image.description} height="300px"/> */}
-            <button onClick ={ () => props.likeCount(props.image.id)} id={props.image.id}>Like!</button>
-            <p>{props.image.likes} Likes on the Photo</p>
+            <button className="likeButton" onClick ={ () => props.likeCount(props.image.id)} id={props.image.id}>Like!</button>
+            <p className="likesText">{props.image.likes} Likes on the Photo</p>
             {/*  galleryItem.likes += 1; We use likes in here from looking at the gallery.router */}
         </div>
     )
